@@ -23,15 +23,15 @@ echo
 cur_dir=`pwd`
 # Stream Ciphers
 ciphers=(
+aes-256-cfb
+aes-192-cfb
+aes-128-cfb
 aes-256-gcm
 aes-192-gcm
 aes-128-gcm
 aes-256-ctr
 aes-192-ctr
 aes-128-ctr
-aes-256-cfb
-aes-192-cfb
-aes-128-cfb
 camellia-128-cfb
 camellia-192-cfb
 camellia-256-cfb
@@ -160,8 +160,8 @@ pre_install(){
     fi
     # Set shadowsocks config password
     echo "Please input password for shadowsocks-python"
-    read -p "(Default password: teddysun.com):" shadowsockspwd
-    [ -z "${shadowsockspwd}" ] && shadowsockspwd="teddysun.com"
+    read -p "(Default password: password123):" shadowsockspwd
+    [ -z "${shadowsockspwd}" ] && shadowsockspwd="password123"
     echo
     echo "---------------------------"
     echo "password = ${shadowsockspwd}"
@@ -171,8 +171,8 @@ pre_install(){
     while true
     do
     echo "Please input port for shadowsocks-python [1-65535]"
-    read -p "(Default port: 8989):" shadowsocksport
-    [ -z "$shadowsocksport" ] && shadowsocksport="8989"
+    read -p "(Default port: 83):" shadowsocksport
+    [ -z "$shadowsocksport" ] && shadowsocksport="83"
     expr ${shadowsocksport} + 1 &>/dev/null
     if [ $? -eq 0 ]; then
         if [ ${shadowsocksport} -ge 1 ] && [ ${shadowsocksport} -le 65535 ]; then
