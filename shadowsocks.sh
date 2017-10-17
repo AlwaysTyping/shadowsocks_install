@@ -171,8 +171,8 @@ pre_install(){
     while true
     do
     echo "Please input port for shadowsocks-python [1-65535]"
-    read -p "(Default port: 83):" shadowsocksport
-    [ -z "$shadowsocksport" ] && shadowsocksport="83"
+    read -p "(Default port: 66):" shadowsocksport
+    [ -z "$shadowsocksport" ] && shadowsocksport="66"
     expr ${shadowsocksport} + 1 &>/dev/null
     if [ $? -eq 0 ]; then
         if [ ${shadowsocksport} -ge 1 ] && [ ${shadowsocksport} -le 65535 ]; then
